@@ -2,7 +2,31 @@
 .code
 .startup
 
+mov ah, 00h
+mov al, 13h
+int 10h
+
+mov cx, 500
+ciclo:
+mov ci, cx
+mov ah, 0ch
+mov al, 01000010b
+mov bh, 0h
+mov cx, x
+mov dx, y
+inc y
+int 10h
+mov cx, ci
+loop ciclo
+
+mov ah, 1
+int 21h
+
 mov ax,4c00h
 int 21h
+
+ci dw ?
+x dw 50
+y dw 0 
 
 end
