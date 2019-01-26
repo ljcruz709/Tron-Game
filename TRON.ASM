@@ -6,7 +6,9 @@ mov ah,0
 mov al,12h
 int 10h
 
-mov ah,0dh	;obtiene el valor de un pixel negro para comparar colision
+;obtiene el valor de un pixel negro para comparar colision
+
+mov ah,0dh	
 mov bh,0
 mov cx,200
 mov dx,200
@@ -14,11 +16,11 @@ int 10h
 mov pixvali,al
 
 ;-----------------------pantalla de inicio-----------------------
-
+;-----------------linea horizontal de la T
 mov xi1, 30
 mov yi1, 100
 mov cx, 150
-ciclo_inicio:  ;linea horizontal de la t
+ciclo_inicio:  
 mov ci, cx
 
 mov reta2, 1
@@ -29,16 +31,18 @@ mov al,01000010b
 mov bh,0b
 mov cx, xi1
 mov dx, yi1
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h         
 inc xi1
 
 mov cx, ci
 loop ciclo_inicio
+;-----------------------------------------
+;-------------------linea vertical de la T
 
 mov xi1, 105
 mov yi1, 100
 mov cx, 150
-ciclo_inicio2:    ;linea vertical de la t
+ciclo_inicio2:    
 mov ci, cx
 
 mov reta2, 1
@@ -49,16 +53,18 @@ mov al,01000010b
 mov bh,0b
 mov cx, xi1
 mov dx, yi1
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h        
 inc yi1
 
 mov cx, ci
 loop ciclo_inicio2
+;-----------------------------------------
+;-------------------linea vertical de la R
 
 mov xi1, 200
 mov yi1, 250
 mov cx, 150
-ciclo_inicio3:     ;linea vertical de la r
+ciclo_inicio3:     
 mov ci, cx
 
 mov reta2, 1
@@ -69,14 +75,15 @@ mov al,01000100b
 mov bh,0b
 mov cx, xi1
 mov dx, yi1
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h        
 dec yi1
 
 mov cx, ci
 loop ciclo_inicio3 ; 
-
+;----------------------------------------
+;------------------------cuadro de la R 1
 mov cx, 70
-ciclo_inicio4:   ;cuadro de la r 1
+ciclo_inicio4:   
 mov ci, cx	
 
 mov reta2, 1
@@ -87,14 +94,15 @@ mov al,01000100b
 mov bh,0b
 mov cx, xi1
 mov dx, yi1
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h         
 inc xi1
 
 mov cx, ci
 loop ciclo_inicio4  
-
+;----------------------------------------
+;------------------------------cuadro R 2 
 mov cx, 5
-ciclo_inicio5:  ;  cuadro r 2  
+ciclo_inicio5:   
 mov ci, cx
 
 mov reta2, 1
@@ -105,16 +113,17 @@ mov al,01000100b
 mov bh,0b
 mov cx, xi1
 mov dx, yi1
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h         
 inc yi1
 inc xi1
 
 mov cx, ci
 loop ciclo_inicio5
-
+;----------------------------------------
+;------------------------------cuadro R 3
 
 mov cx, 65
-ciclo_inicio6:   ;  cuadro r 3
+ciclo_inicio6:   
 mov ci, cx
 
 mov reta2, 1
@@ -125,14 +134,15 @@ mov al,01000100b
 mov bh,0b
 mov cx, xi1
 mov dx, yi1
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h         
 inc yi1
 
 mov cx, ci
 loop ciclo_inicio6
-
+;----------------------------------------
+;------------------------------cuadro R 4
 mov cx, 5
-ciclo_inicio7:   ;  cuadro r 4
+ciclo_inicio7:   
 mov ci, cx
 
 mov reta2, 1
@@ -143,16 +153,17 @@ mov al,01000100b
 mov bh,0b
 mov cx, xi1
 mov dx, yi1
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h         
 inc yi1
 dec xi1
 
 mov cx, ci
 loop ciclo_inicio7
-
+;----------------------------------------
+;------------------------------cuadro R 5
 
 mov cx, 70
-ciclo_inicio8:   ;  cuadro r 5
+ciclo_inicio8:   
 mov ci, cx
 
 mov reta2, 1
@@ -163,14 +174,15 @@ mov al,01000100b
 mov bh,0b
 mov cx, xi1
 mov dx, yi1
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h         
 dec xi1
 
 mov cx, ci
 loop ciclo_inicio8
-
+;----------------------------------------
+;--------------------------------R patita
 mov cx, 75
-ciclo_inicio9:   ; r patita
+ciclo_inicio9:   
 mov ci, cx
 
 mov reta2, 1
@@ -181,19 +193,20 @@ mov al,01000100b
 mov bh,0b
 mov cx, xi1
 mov dx, yi1
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h         
 inc xi1
 inc yi1
 
 mov cx, ci
 loop ciclo_inicio9
-
+;----------------------------------------
+;------------------------------O costados
 mov xi1, 295
 mov yi1, 100
 mov xi2, 395
 mov yi2, 250
 mov cx, 150
-ciclo_inicio10:   ; o costados
+ciclo_inicio10:   
 mov ci, cx
 
 mov reta2, 1
@@ -204,7 +217,7 @@ mov al,01000010b
 mov bh,0b
 mov cx, xi1
 mov dx, yi1
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h         
 inc yi1
 
 mov ah,0ch
@@ -212,14 +225,15 @@ mov al,01000100b
 mov bh,0b
 mov cx, xi2
 mov dx, yi2
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h         
 dec yi2
 
 mov cx, ci
 loop ciclo_inicio10
-
+;----------------------------------------
+;--------------------------O horizontales
 mov cx, 100
-ciclo_inicio11:   ; o horizontales
+ciclo_inicio11:   
 mov ci, cx
 
 mov reta2, 1
@@ -230,7 +244,7 @@ mov al,01000010b
 mov bh,0b
 mov cx, xi1
 mov dx, yi1
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h         
 inc xi1
 
 mov ah,0ch
@@ -238,19 +252,19 @@ mov al,01000100b
 mov bh,0b
 mov cx, xi2
 mov dx, yi2
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h         
 dec xi2
 
 mov cx, ci
 loop ciclo_inicio11
-
-
+;----------------------------------------
+;------------------------------N costados
 mov xi1, 415
 mov yi1, 250
 mov xi2, 565
 mov yi2, 100
 mov cx, 150
-ciclo_inicio12:   ; n costados
+ciclo_inicio12:   
 mov ci, cx
 
 mov reta2, 1
@@ -261,7 +275,7 @@ mov al,01000100b
 mov bh,0b
 mov cx, xi1
 mov dx, yi1
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h         
 dec yi1
 
 mov ah,0ch
@@ -269,14 +283,15 @@ mov al,01000010b
 mov bh,0b
 mov cx, xi2
 mov dx, yi2
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h         
 inc yi2
 
 mov cx, ci
 loop ciclo_inicio12
-
+;----------------------------------------
+;---------------------------diagonal de N
 mov cx, 76
-ciclo_inicio13:   ; diagonal de n
+ciclo_inicio13:   
 mov ci, cx
 
 mov reta2, 1
@@ -287,7 +302,7 @@ mov al,01000100b
 mov bh,0b
 mov cx, xi1
 mov dx, yi1
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h         
 inc xi1
 inc yi1
 
@@ -296,33 +311,34 @@ mov al,01000010b
 mov bh,0b
 mov cx, xi2
 mov dx, yi2
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h         
 dec xi2
 dec yi2
 
 mov cx, ci
 loop ciclo_inicio13
-
-
+;----------------------------------------
+;esperamos una tecla para iniciar el juego
 mov ah,09h
 mov dx, offset continua
 int 21h
 
-
 mov ah, 0
-int 16h        ; esperamos una tecla para iniciar el juego
-
-;--------------------------margen-------------------------------------
+int 16h        
+;----------------------------------------
+;--------------------------Margen-------------------------------------
+;----------------------limpiamos pantalla
 inicio:
-mov ah,0        ; limpiamos pantalla
+mov ah,0        
 mov al,12h
 int 10h
-
+;----------------------------------------
+;-------vamos a pintar 470 de las orillas
 mov xi2, 620
 mov yi2, 0
 mov xi1, 0
 mov yi1, 0
-mov cx,470           ;vamos a pintar 470 de las orillas
+mov cx,470           
 ciclo_borde:
 mov reta2, 1
 call retardo
@@ -343,8 +359,9 @@ inc yi2
 
 mov cx,ci
 loop ciclo_borde
-
-mov cx,620           ;vamos a pintar 620 de arriba y abajo
+;---------------------------------------
+;---vamos a pintar 620 de arriba y abajo
+mov cx,620           
 mov xi2,0
 mov yi2,0
 ciclo_borde1:
@@ -367,18 +384,202 @@ int 10h
 inc xi2
 
 mov cx,ci
-
 loop ciclo_borde1
-
+;---------------------------------------
+;-----------------------Pintado de bombas-------------------------
+;--------------------------------Bomba 1
+mov ci,100
+mov xi1,51
+mov yi1,51
+bomba1:
+cmp xi1,61
+jne siguepintando
+inc yi1
+mov xi1,51
+siguepintando:
+mov ah,0ch
+mov al,01001110b
+mov bh,0b
+mov cx,xi1
+mov dx,yi1
+int 10h
+inc xi1
+dec ci
+cmp ci,0
+jne bomba1
+;---------------------------------------
+;obtiene el valor de un pixel amarillo para comparar colision
+mov ah,0dh	
+mov bh,0
+mov cx,51
+mov dx,51
+int 10h
+mov pixvalibomb,al
+;---------------------------------------
+;--------------------------------Bomba 2
+mov ci,100
+mov xi1,560
+mov yi1,51
+bomba2:
+cmp xi1,570
+jne siguepintando2
+inc yi1
+mov xi1,560
+siguepintando2:
+mov ah,0ch
+mov al,01001110b
+mov bh,0b
+mov cx,xi1
+mov dx,yi1
+int 10h
+inc xi1
+dec ci
+cmp ci,0
+jne bomba2
+;---------------------------------------
+;--------------------------------Bomba 3
+mov ci,100
+mov xi1,51
+mov yi1,410
+bomba3:
+cmp xi1,61
+jne siguepintando3
+inc yi1
+mov xi1,51
+siguepintando3:
+mov ah,0ch
+mov al,01001110b
+mov bh,0b
+mov cx,xi1
+mov dx,yi1
+int 10h
+inc xi1
+dec ci
+cmp ci,0
+jne bomba3
+;---------------------------------------
+;--------------------------------Bomba 4
+mov ci,100
+mov xi1,560
+mov yi1,410
+bomba4:
+cmp xi1,570
+jne siguepintando4
+inc yi1
+mov xi1,560
+siguepintando4:
+mov ah,0ch
+mov al,01001110b
+mov bh,0b
+mov cx,xi1
+mov dx,yi1
+int 10h
+inc xi1
+dec ci
+cmp ci,0
+jne bomba4
+jmp ciclo
+;---------------------------------------
+;----------------------Explosion de bombas-----------------------
+;----------------------------Explosion 1
+despintar1:
+mov ci,0FFFFh
+mov xi1,1
+mov yi1,1
+desbomba1:
+cmp xi1,256
+jne siguedespintando
+inc yi1
+mov xi1,1
+siguedespintando:
+mov ah,0ch
+mov al,pixvali
+mov bh,0b
+mov cx,xi1
+mov dx,yi1
+int 10h
+inc xi1
+dec ci
+cmp ci,0
+jne desbomba1
+jmp ciclo
+;---------------------------------------
+;----------------------------Explosion 2
+despintar2:
+mov ci,0FFFFh
+mov xi1,363
+mov yi1,1
+desbomba2:
+cmp xi1,620
+jne siguedespintando2
+inc yi1
+mov xi1,363
+siguedespintando2:
+mov ah,0ch
+mov al,pixvali
+mov bh,0b
+mov cx,xi1
+mov dx,yi1
+int 10h
+inc xi1
+dec ci
+cmp ci,0
+jne desbomba2
+jmp ciclo
+;---------------------------------------
+;----------------------------Explosion 3
+despintar3:
+mov ci,0FFFFh
+mov xi1,1
+mov yi1,213
+desbomba3:
+cmp xi1,256
+jne siguedespintando3
+inc yi1
+mov xi1,1
+siguedespintando3:
+mov ah,0ch
+mov al,pixvali
+mov bh,0b
+mov cx,xi1
+mov dx,yi1
+int 10h
+inc xi1
+dec ci
+cmp ci,0
+jne desbomba3
+jmp ciclo
+;---------------------------------------
+;----------------------------Explosion 4
+despintar4:
+mov ci,0FFFFh
+mov xi1,363
+mov yi1,213
+desbomba4:
+cmp xi1,620
+jne siguedespintando4
+inc yi1
+mov xi1,363
+siguedespintando4:
+mov ah,0ch
+mov al,pixvali
+mov bh,0b
+mov cx,xi1
+mov dx,yi1
+int 10h
+inc xi1
+dec ci
+cmp ci,0
+jne desbomba4
+;---------------------------------------
 ;----------------------------juego-------------------------------
 mov hbb1, 1
 mov hbt1, 0
 mov hbb2, 1
 mov hbt2, 0
-
-
+;--------------------------Jugador 1-----------------------------
 ciclo:
-mov reta2, 5     ;variables para esperar menos de un segundo para no imprimir tan rapido
+mov reta2, 5     ;variables para el retardo
 call retardo
 
 mov ah,01h
@@ -391,12 +592,15 @@ cmp al, 53
 jne trol
 jmp fin
 trol:
-
-cmp al,101    ; este es el especial de mini invensibilidad
+;---------------------------------------
+;-------------------------invencibilidad
+cmp al,101  
 je simon
 
+;se valida si la tecla recibida esta incluida en los controles del juego
+
 cmp al, 100
-je simon	    ;se valida si la tecla recibida esta incluida en los controles del juego
+je simon	    
 cmp al, 115
 je simon
 cmp al, 119
@@ -427,7 +631,9 @@ jne izquierda
 cmp tecla, 119
 je handbreak
 jmp cambiatecla
-		;verifica que no sea la direccion contraria
+;---------------------------------------
+;verifica que no sea la direccion contraria
+
 izquierda:
 cmp al, 97
 jne derecha
@@ -461,10 +667,9 @@ cmp hbt1, 0
 je nc1
 dec hbt1
 jmp sobrevive_fin
-
-
+;---------------------------------------
+;--------cuatro direcciones de jugador 1
 nc1:
-                    ;cuatro direcciones de jugador 1
 cmp tecla,100
 jne nocambia
 inc x1
@@ -487,8 +692,9 @@ nocambia3:
 
 cmp espe, 0
 jnz sobrevive
-
-mov ah,0dh	;valida si hay colision para el J1
+;---------------------------------------
+;------valida si hay colision para el J1
+mov ah,0dh	
 mov bh,0
 mov cx,x1
 mov dx,y1
@@ -496,6 +702,22 @@ int 10h
 cmp al,pixvali
 mov perdedor, 1
 je trol2
+cmp al,pixvalibomb 
+jne nelson ;------------------- salta si no choco con bomba
+cmp y1,235
+ja mitadbaja ;--salta si la bomba esta en la mitad baja de la pantalla
+cmp x1,310
+ja mitadderalt ;--salta si la bomba esta en esquina superior der
+jmp despintar1
+mitadderalt:
+jmp despintar2
+mitadbaja: ;------la mitad baja--------------------------------
+cmp x1,310
+ja mitadderbaj ;--salta si la bomba esta en esquina inferior der
+jmp despintar3
+mitadderbaj:
+jmp despintar4
+nelson:
 jmp gameover
 trol2:
 
@@ -508,6 +730,8 @@ jmp sobrevive_fin
 sobrevive:
 dec espe
 sobrevive_fin:
+;---------------------------------------
+;--------------------impresion jugador 1
 
 ;JUGADOR1
 mov ah,0ch
@@ -521,21 +745,24 @@ fin_espe_activo:
 mov bh,0b
 mov cx,x1
 mov dx,y1
-int 10h         ;imprimimos el pixel en la posicion x,y
-;--------------------------------J2--------------------------
+int 10h    
+;---------------------------------------     
+;--------------------------Jugador 2--------------------------
 
 mov ah,01h
 int 16h
 jnz trol32; si es cero no se modifica nada 
 jmp nocambiatecla2
 trol32:
-
-
-cmp al,111    ; este es el especial de mini invensibilidad
+;---------------------------------------
+;-------------------------invencibilidad
+cmp al,111    
 je simon2
 
+;se valida si la tecla recibida esta incluida en los controles del juego
+
 cmp al, 108
-je simon2	    ;se valida si la tecla recibida esta incluida en los controles del juego
+je simon2	    
 cmp al, 107
 je simon2
 cmp al, 105
@@ -566,14 +793,16 @@ jne izquierda2
 cmp tecla2, 105
 je handbreak2
 jmp cambiatecla2
-		;verifica que no sea la direccion contraria
+;---------------------------------------
+;verifica que no sea la direccion contraria
 izquierda2:
 cmp al, 106
 jne derecha2
 cmp tecla2, 108
 je handbreak2
 jmp cambiatecla2
-
+;---------------------------------------
+;--------cuatro direcciones de jugador 2
 derecha2:
 cmp al, 108
 jne nocambiatecla2
@@ -599,9 +828,7 @@ je nc12
 dec hbt2
 jmp sobrevive_fin2
 
-
 nc12:
-                    ;cuatro direcciones de jugador 1
 cmp tecla2,108
 jne nocambiaj2
 inc x2
@@ -624,8 +851,9 @@ nocambia32:
 
 cmp espe2, 0
 jnz sobrevive2
-
-mov ah,0dh	;valida si hay colision para el J2
+;---------------------------------------
+;------valida si hay colision para el J1
+mov ah,0dh	
 mov bh,0
 mov cx,x2
 mov dx,y2
@@ -633,6 +861,22 @@ int 10h
 cmp al,pixvali
 mov perdedor, 2
 je trol22
+cmp al,pixvalibomb 
+jne nelson2 ;------------------- salta si no choco con bomba
+cmp y2,235
+ja mitadbaja2 ;--salta si la bomba esta en la mitad baja de la pantalla
+cmp x2,310
+ja mitadderalt2 ;--salta si la bomba esta en esquina superior der
+jmp despintar1
+mitadderalt2:
+jmp despintar2
+mitadbaja2: ;------la mitad baja--------------------------------
+cmp x2,310
+ja mitadderbaj2 ;--salta si la bomba esta en esquina inferior der
+jmp despintar3
+mitadderbaj2:
+jmp despintar4
+nelson2:
 jmp gameover
 trol22:
 
@@ -645,8 +889,8 @@ jmp sobrevive_fin2
 sobrevive2:
 dec espe2
 sobrevive_fin2:
-
-
+;---------------------------------------
+;--------------------impresion jugador 1
 ;JUGADOR 2
 mov ah,0ch
 cmp espe2,0
@@ -659,14 +903,14 @@ fin_espe_activo2:
 mov bh,0b
 mov cx,x2
 mov dx,y2
-int 10h         ;imprimimos el pixel en la posicion x,y
+int 10h
 
 mov ah,0ch
 mov al,0
 int 21h         ;esto limpia el buffer
 
 jmp ciclo
-
+;---------------------------------------
 ;---------------------------retardo----------------------------
 retardo:
 mov reta, 16000
@@ -678,7 +922,7 @@ mov reta,16000
 dec reta2
 jnz retardo1     ;hacemos que el programa se espere un poco
 ret
-
+;--------------------------------------------------------------
 ;---------------------------game over----------------------------
 gameover:
 mov ah,0
@@ -713,7 +957,8 @@ mov dx, offset gana1
 int 21h
 
 saltote:
-
+;---------------------------------------
+;------------------Inicializar variables
 mov ah,0
 int 16h
 mov x1,1
@@ -725,11 +970,15 @@ mov yi1,0
 mov xi2,620	      
 mov yi2,0
 mov tecla,100
-mov tecla2,106	      
+mov tecla2,106	 
+mov hbb1, 1
+mov hbt1, 0
+mov hbb2, 1
+mov hbt2, 0     
 
 jmp inicio
-
-
+;---------------------------------------
+;--------------------------Fin ejecucion
 fin:
 mov ax,4c00h
 int 21h	
@@ -739,10 +988,10 @@ y1 dw 235
 x2 dw 619
 y2 dw 235
 
-xi1 dw 0              ;x,y iniciales para poder dibujar el borde
-yi1 dw 0              ;desde la esquina superior izquierda
-xi2 dw 620	      ;estas son para empezar desde la esquina
-yi2 dw 0	      ;inferior derecha
+xi1 dw 0              	;x,y iniciales para poder dibujar el borde
+yi1 dw 0             	;desde la esquina superior izquierda
+xi2 dw 620	      		;estas son para empezar desde la esquina
+yi2 dw 0	      		;inferior derecha
 
 ci dw 0
 reta dw ?
@@ -750,6 +999,7 @@ reta2 dw ?
 tecla db 100
 tecla2 db 106
 pixvali db ?
+pixvalibomb db ?
 over db "GAME OVER$"
 gana1 db " GANADOR JUGADOR 1$"
 gana2 db " GANADOR JUGADOR 2$"
